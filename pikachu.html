@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pikachu.css" />
+    <title>Get Pikachu!</title>
+  </head>
+  <body>
+    <main>
+      <h1>Get Pikachu!</h1>
+      <div class="searchBox">
+        <input
+          id="pokemonName"
+          type="hidden"
+          placeholder="Pokemon name"
+        />
+        <button id="search">Get!</button>
+      </div>
+
+      <div class="pokemonBox"></div>
+    </main>
+
+    <script>
+      document.querySelector("#search").addEventListener("click", getPokemon);
+
+      function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+
+      function lowerCaseName(string) {
+        return string.toLowerCase();
+      }
+
+      function getPokemon(e) {
+        const name = document.querySelector("#pokemonName").value;
+        const pokemonName = lowerCaseName(name);
+
+        fetch(`https://pokeapi.co/api/v2/pokemon/${"pikachu"}`)
+          .then((response) => response.json())
+          .then((data) => {
+            document.querySelector(".pokemonBox").innerHTML = `
+            <div class="pokemonInfos">
+                <p>${data.id}</p>
+                <p>${capitalizeFirstLetter(data.name)}</p>
+            </div>
+            <div>
+              <img
+                src="${data.sprites.front_default}"
+                alt="Pokemon name"
+              />
+            </div>
+            <div class="pokemonInfos">
+              <p>Type: ${capitalizeFirstLetter(data.types[0].type.name)}</p>
+            </div>`;
+          })
+
+        e.preventDefault();
+      }
+    </script>
+  </body>
+</html>
