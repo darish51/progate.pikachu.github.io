@@ -1,0 +1,70 @@
+body,
+input,
+textarea,
+select,
+button {
+  color: black;
+  font: 400 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main {
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.searchBox input {
+  outline: none;
+  height: 36px;
+  padding: 4px 16px;
+  color: #000;
+}
+
+.searchBox button {
+  height: 36px;
+  padding: 4px 16px;
+  
+}
+
+.pokemonBox {
+  width: 10%;
+  background-color: yellow;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
+  margin: auto;
+  text-align: center;
+}
+
+.pokemonBox img {
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
+
+.pokemonBox p {
+  margin-top: 5px;
+}
+
+.pokemonBox .pokemonInfos {
+  padding: 5px;
+}
